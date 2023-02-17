@@ -28,7 +28,7 @@ class Movie(db.Model):
     director = db.relationship("Director")
 
 class MovieSchema(Schema):
-    id = fields.Integer()
+    id = fields.Integer(dump_only = True)
     title = fields.String()
     description = fields.String()
     trailer = fields.String()
@@ -43,7 +43,7 @@ class Director(db.Model):
     name = db.Column(db.String(255))
 
 class DirectorSchema(Schema):
-    id = fields.Integer()
+    id = fields.Integer(dump_only = True)
     name = fields.String()
 
 class Genre(db.Model):
@@ -52,5 +52,5 @@ class Genre(db.Model):
     name = db.Column(db.String(255))
 
 class GenreSchema(Schema):
-    id = fields.Integer()
+    id = fields.Integer(dump_only = True)
     name = fields.String()
