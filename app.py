@@ -11,7 +11,6 @@ from views.movies import movies_ns
 def create_app(config_object):
      app = Flask(__name__)
      app.config.from_object(config_object)
-     register_extensions(app)
      app.app_context().push()
      return app
 
@@ -25,12 +24,11 @@ def register_extensions(app):
 
 
 app = create_app(Config())
-app.debug = True
 register_extensions(app)
 db.create_all()
 
 if __name__ == '__main__':
-     app.run(host="localhost", port=10001, debug=True)
+     app.run(host="localhost", port=10001)
 
 
 
